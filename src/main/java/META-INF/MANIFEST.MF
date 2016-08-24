@@ -1,7 +1,0 @@
-Manifest-Version: 1.0
-Premain-Class: com.tingyun.implinterface.StubPreMain
-Can-Redefine-Classes: true
-Boot-Class-Path: asm-3.2.jar
-
-
-
