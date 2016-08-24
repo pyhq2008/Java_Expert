@@ -1,0 +1,33 @@
+package com.tingyun.zookeeper.ch01;
+
+import org.apache.zookeeper.WatchedEvent;
+import org.apache.zookeeper.Watcher;
+import org.apache.zookeeper.Watcher.Event.KeeperState;
+import org.apache.zookeeper.ZooKeeper;
+
+import java.util.concurrent.CountDownLatch;
+
+//Chapter: 5.3.1 Java API ->
+// 创建连接 -> 创建一个最基本的ZooKeeper对象实例
+public class ZooKeeper_Constructor_Usage_Simple implements Watcher {
+    private static CountDownLatch connectedSemaphore = new CountDownLatch(1);
+    
+    public static void main(String[] args) throws Exception{
+        //会话的建立是一个异步的过程，大多数情况下此时并未真正建立一个可用的会话
+        ZooKeeper zookeeper = new ZooKeeper("192.168.2.95:2181",
+        									5000, //
+        									new ZooKeeper_Constructor_Usage_Simple());
+        System.out.println(zookeeper.getState());
+        try {
+            connectedSemaphore.await();
+            System.out.println(zookeeper.getState());
+        } catch (InterruptedException e) {}
+        System.out.println("ZooKeeper session established.");
+    }
+    public void process(WatchedEvent event) {
+        System.out.println("Receive watched event：" + event);
+        if (KeeperState.SyncConnected == event.getState()) {
+            connectedSemaphore.countDown();
+        }
+    }
+}
