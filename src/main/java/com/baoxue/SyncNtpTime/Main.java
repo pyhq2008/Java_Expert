@@ -19,6 +19,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicHeaderElementIterator;
 import org.apache.http.message.BasicHttpResponse;
 import org.apache.http.protocol.HTTP;
+import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
 import org.junit.Test;
 
@@ -86,16 +87,16 @@ public class Main {
         System.out.println(entity);
         try {
             System.out.println("----------------------------------------");
-            System.out.println(response.getStatusLine());                           //·þÎñÆ÷·µ»Ø×´Ì¬
-            Header[] headers = response.getAllHeaders();                    //·µ»ØµÄHTTPÍ·ÐÅÏ¢
+            System.out.println(response.getStatusLine());                           //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
+            Header[] headers = response.getAllHeaders();                    //ï¿½ï¿½ï¿½Øµï¿½HTTPÍ·ï¿½ï¿½Ï¢
             for (int i = 0; i < headers.length; i++) {
                 System.out.println(headers[i]);
             }
             System.out.println("----------------------------------------");
             String responseString = null;
             if (response.getEntity() != null) {
-                responseString = EntityUtils.toString(response.getEntity());         //·µ»Ø·þÎñÆ÷ÏìÓ¦µÄHTML´úÂë
-                System.out.println(responseString);                                   //´òÓ¡³ö·þÎñÆ÷ÏìÓ¦µÄHTML´úÂë
+                responseString = EntityUtils.toString(response.getEntity());         //ï¿½ï¿½ï¿½Ø·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½HTMLï¿½ï¿½ï¿½ï¿½
+                System.out.println(responseString);                                   //ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½HTMLï¿½ï¿½ï¿½ï¿½
             }
         } finally {
             if (entity != null)
@@ -159,31 +160,31 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
-        DefaultHttpClient httpclient = new DefaultHttpClient();      //ÊµÀý»¯Ò»¸öHttpClient
+        DefaultHttpClient httpclient = new DefaultHttpClient();      //Êµï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½HttpClient
         HttpResponse response = null;
         HttpEntity entity = null;
         httpclient.getParams().setParameter(
-                ClientPNames.COOKIE_POLICY, CookiePolicy.BROWSER_COMPATIBILITY);  //ÉèÖÃcookieµÄ¼æÈÝÐÔ
-        HttpPost httpost = new HttpPost("http://www.baidu.com/");           //ÒýºÅÖÐµÄ²ÎÊýÊÇ£ºservletµÄµØÖ·
+                ClientPNames.COOKIE_POLICY, CookiePolicy.BROWSER_COMPATIBILITY);  //ï¿½ï¿½ï¿½ï¿½cookieï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
+        HttpPost httpost = new HttpPost("http://www.baidu.com/");           //ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ²ï¿½ï¿½ï¿½ï¿½Ç£ï¿½servletï¿½Äµï¿½Ö·
         List<NameValuePair> nvps = new ArrayList<NameValuePair>();
 //        nvps.add(new BasicNameValuePair("jqm", "fb1f7cbdaf2bf0a9cb5d43736492640e0c4c0cd0232da9de"));
-//        //   BasicNameValuePair("name", "value"), nameÊÇpost·½·¨ÀïµÄÊôÐÔ, valueÊÇ´«ÈëµÄ²ÎÊýÖµ
+//        //   BasicNameValuePair("name", "value"), nameï¿½ï¿½postï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, valueï¿½Ç´ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½Öµ
 //        nvps.add(new BasicNameValuePair("sqm", "1bb5b5b45915c8"));
-        httpost.setEntity(new UrlEncodedFormEntity(nvps, HTTP.UTF_8));            //½«²ÎÊý´«Èëpost·½·¨ÖÐ
-        response =  httpclient.execute(httpost);                                               //Ö´ÐÐ
-        entity = response.getEntity();                                                             //·µ»Ø·þÎñÆ÷ÏìÓ¦
+        httpost.setEntity(new UrlEncodedFormEntity(nvps, HTTP.UTF_8));            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½postï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        response =  httpclient.execute(httpost);                                               //Ö´ï¿½ï¿½
+        entity = response.getEntity();                                                             //ï¿½ï¿½ï¿½Ø·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦
         try {
             System.out.println("----------------------------------------");
-            System.out.println(response.getStatusLine());                           //·þÎñÆ÷·µ»Ø×´Ì¬
-            Header[] headers = response.getAllHeaders();                    //·µ»ØµÄHTTPÍ·ÐÅÏ¢
+            System.out.println(response.getStatusLine());                           //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
+            Header[] headers = response.getAllHeaders();                    //ï¿½ï¿½ï¿½Øµï¿½HTTPÍ·ï¿½ï¿½Ï¢
             for (int i = 0; i < headers.length; i++) {
                 System.out.println(headers[i]);
             }
             System.out.println("----------------------------------------");
             String responseString = null;
             if (response.getEntity() != null) {
-                responseString = EntityUtils.toString(response.getEntity());         //·µ»Ø·þÎñÆ÷ÏìÓ¦µÄHTML´úÂë
-                System.out.println(responseString);                                   //´òÓ¡³ö·þÎñÆ÷ÏìÓ¦µÄHTML´úÂë
+                responseString = EntityUtils.toString(response.getEntity());         //ï¿½ï¿½ï¿½Ø·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½HTMLï¿½ï¿½ï¿½ï¿½
+                System.out.println(responseString);                                   //ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½HTMLï¿½ï¿½ï¿½ï¿½
             }
         } finally {
             if (entity != null)
@@ -197,30 +198,30 @@ public class Main {
     }
 
 
-    @Test
-    public void  testHttpContext() throws IOException {
-        HttpClientContext context = HttpClientContext.create();
-        CloseableHttpClient httpclient = HttpClients.createDefault();
-
-        RequestConfig requestConfig = RequestConfig.custom()
-                .setSocketTimeout(1000)
-                .setConnectTimeout(1000)
-                .build();
-
-        HttpGet httpget1 = new HttpGet("http://www.baidu.com/");
-        httpget1.setConfig(requestConfig);
-        CloseableHttpResponse response1 = httpclient.execute(httpget1, context);
-        try {
-            HttpEntity entity1 = response1.getEntity();
-        } finally {
-            response1.close();
-        }
-        HttpGet httpget2 = new HttpGet("http://localhost/2");
-        CloseableHttpResponse response2 = httpclient.execute(httpget2, context);
-        try {
-            HttpEntity entity2 = response2.getEntity();
-        } finally {
-            response2.close();
-        }
-    }
+//    @Test
+//    public void  testHttpContext() throws IOException {
+//        HttpClientContext context = HttpClientContext.create();
+//        CloseableHttpClient httpclient = HttpClients.createDefault();
+//
+//        RequestConfig requestConfig = RequestConfig.custom()
+//                .setSocketTimeout(1000)
+//                .setConnectTimeout(1000)
+//                .build();
+//
+//        HttpGet httpget1 = new HttpGet("http://www.baidu.com/");
+//        httpget1.setConfig(requestConfig);
+//        CloseableHttpResponse response1 = httpclient.execute(httpget1, (HttpContext) context);
+//        try {
+//            HttpEntity entity1 = response1.getEntity();
+//        } finally {
+//            response1.close();
+//        }
+//        HttpGet httpget2 = new HttpGet("http://localhost/2");
+//        CloseableHttpResponse response2 = httpclient.execute(httpget2, (HttpContext) context);
+//        try {
+//            HttpEntity entity2 = response2.getEntity();
+//        } finally {
+//            response2.close();
+//        }
+//    }
 }

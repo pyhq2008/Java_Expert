@@ -1,7 +1,6 @@
 package com.baoxue.extendclass;
 
-import com.newrelic.agent.deps.org.objectweb.asm.Type;
-import com.newrelic.api.agent.weaver.NewField;
+import org.objectweb.asm.Type;
 
 /**
  * Created by Administrator on 2015/5/20.

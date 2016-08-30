@@ -29,14 +29,14 @@ public class TestSSLContext {
         tmf.init(ks);
 
         SSLContext context = SSLContext.getInstance("TLSv1.2");
-        //这里只指定了受信任的证书（单向认证），如果是双向认证的话，则第一个参数不能为null
+        //锟斤拷锟斤拷只指锟斤拷锟斤拷锟斤拷锟斤拷锟轿碉拷证锟介（锟斤拷锟斤拷锟斤拷证锟斤拷锟斤拷锟斤拷锟斤拷锟剿拷锟斤拷锟街わ拷幕锟斤拷锟斤拷锟斤拷一锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷为null
         context.init(null, tmf.getTrustManagers(), null);
         return context;
     }
     public static void main(String[] args) throws Exception
     {
         HttpClientBuilder builder = HttpClients.custom();
-        builder.setSSLContext(getSSLContext());
+//        builder.setSSLContext(getSSLContext());
 
         CloseableHttpClient httpclient = builder.build();
         HttpGet httpget = new HttpGet("https://127.0.0.1:4488");
