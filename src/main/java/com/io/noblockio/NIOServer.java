@@ -15,6 +15,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
+ * 同步非阻塞的server
  * Created by baoxue on 16/9/11.
  */
 public class NIOServer {
