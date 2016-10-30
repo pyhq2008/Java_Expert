@@ -323,6 +323,29 @@
             <version>3.31.1</version>
         </dependency>
 
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/com.sun.tools.btrace/btrace-agent &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>com.sun.tools.btrace</groupId>-->
+            <!--<artifactId>btrace-agent</artifactId>-->
+            <!--<version>1.2.3</version>-->
+        <!--</dependency>-->
+
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/com.sun.tools.btrace/btrace-boot &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>com.sun.tools.btrace</groupId>-->
+            <!--<artifactId>btrace-boot</artifactId>-->
+            <!--<version>1.2.3</version>-->
+        <!--</dependency>-->
+
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/com.sun.tools.btrace/btrace-client &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>com.sun.tools.btrace</groupId>-->
+            <!--<artifactId>btrace-client</artifactId>-->
+            <!--<version>1.2.3</version>-->
+        <!--</dependency>-->
+
+
+
     </dependencies>
 
 	<build>
